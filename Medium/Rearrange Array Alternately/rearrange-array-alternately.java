@@ -55,27 +55,72 @@ class Solution{
     // n: size of array
     //Function to rearrange  the array elements alternately.
     public static void rearrange(long arr[], int n){
-        
-       long key = arr[n-1]+1;
-       int j=0;
-       int k = n-1;
-       for(int i=0;i<n;i++)
-       {    //even
-           if(i%2==0)
-           {
-             arr[i] = (arr[k] % key)*key+arr[i];
-             k--;
-           }else
-           {
-            arr[i] = (arr[j]%key)*key+arr[i];   
+    
+    //taking greater value than greatest value of an array we know the last one of array value is greatest that why ewe add 1 in that
+    long key = arr[n-1]+1;
+    
+    // use two pointer approch
+    int j=0;
+    int k=n-1;
+    
+    for(int i=0;i<n;i++)
+    {
+        //find even place  & odd
+        if(i%2==0)
+        {
+            arr[i] = (arr[k]%key)*key+arr[i];
+            k--;
+        }else
+        {
+            //odd
+            arr[i] = (arr[j]%key)*key+arr[i];
             j++;
-           }
-       }
+        }
+        
+    }
+    
+    for(int i=0;i<n;i++)
+    {
+        arr[i] = arr[i]/key;
+    }
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    //   long key = arr[n-1]+1;
+    //   int j=0;
+    //   int k = n-1;
+    //   for(int i=0;i<n;i++)
+    //   {    //even
+    //       if(i%2==0)
+    //       {
+    //          arr[i] = (arr[k] % key)*key+arr[i];
+    //          k--;
+    //       }else
+    //       {
+    //         arr[i] = (arr[j]%key)*key+arr[i];   
+    //         j++;
+    //       }
+    //   }
        
-       for(int i=0;i<n;i++)
-       {
-           arr[i] = arr[i]/key;
-       }
+    //   for(int i=0;i<n;i++)
+    //   {
+    //       arr[i] = arr[i]/key;
+    //   }
         
     }
     
